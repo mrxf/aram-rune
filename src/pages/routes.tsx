@@ -30,6 +30,18 @@ export const routeItems: IRouteItem[] = [
     component: loader("dashboard"),
   },
   {
+    path: "/tools",
+    name: "工具包",
+    icon: <CloudServerOutlined />,
+    routes: [
+      {
+        name: "屠夫之桥",
+        path: "/tools/murder-bridge",
+        component: loader("murderBridge"),
+      },
+    ],
+  },
+  {
     path: "/tables",
     name: "表格",
     icon: <TableOutlined />,
