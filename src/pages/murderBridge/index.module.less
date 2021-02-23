@@ -4,10 +4,39 @@
 
 .heroContainer {
   display: none;
+  position: relative;
+  width: 85px;
+  height: 85px;
+  float: left;
+  margin: 7.5px;
+  :global {
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    span {
+      color: white;
+      position: absolute;
+      font-weight: bolder;
+      right: 0;
+      bottom: 0;
+    }
+  }
 }
 .show {
   display: block;
 }
 .hide {
   display: none;
+}
+.filterContainer {
+  margin-bottom: 16px;
+  :global {
+    .ant-card-body {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
 }

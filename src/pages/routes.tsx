@@ -21,38 +21,7 @@ export const routeItems: IRouteItem[] = [
     exact: true,
     hide: true,
     name: "首页",
-    children: <Redirect to="/tables/basic" />,
-  },
-  {
-    path: "/dashboard",
-    name: "Dashboard",
-    icon: <CloudServerOutlined />,
-    component: loader("dashboard"),
-  },
-  {
-    path: "/tools",
-    name: "工具包",
-    icon: <CloudServerOutlined />,
-    routes: [
-      {
-        name: "屠夫之桥",
-        path: "/tools/murder-bridge",
-        component: loader("murderBridge"),
-      },
-    ],
-  },
-  {
-    path: "/tables",
-    name: "表格",
-    icon: <TableOutlined />,
-    routes: [
-      {
-        name: "基础表格",
-        path: "/tables/basic",
-        icon: <InsertRowAboveOutlined />,
-        component: loader("tables/basic"),
-      },
-    ],
+    component: loader("murderBridge"),
   },
   {
     hide: true,
