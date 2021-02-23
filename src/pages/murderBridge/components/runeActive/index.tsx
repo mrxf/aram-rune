@@ -1,5 +1,5 @@
 import React, { ReactText } from "react";
-import { MainRuneMap, SubRuneMap } from "../../constants/runes";
+import { FragmentMap, MainRuneMap, SubRuneMap } from "../../constants/runes";
 import Rune from "../rune";
 import styles from "./index.module.less";
 
@@ -19,6 +19,7 @@ const RuneActive: React.FC<RuneActiveProps> = ({
       <div className={styles.primaryRune}>
         {MainRuneMap[primaryStyleId].map((runeList) => (
           <div className={styles.runeRow}>
+            <Rune id={primaryStyleId} active />
             {runeList.map((runeId) => (
               <Rune
                 id={runeId}
@@ -37,7 +38,21 @@ const RuneActive: React.FC<RuneActiveProps> = ({
                 id={runeId}
                 active={selectedPerkIds.includes(runeId)}
                 size="small"
-                key={ runeId }
+                key={runeId}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+      <div className={styles.fragmentRune}>
+        {FragmentMap.map((runeList) => (
+          <div className={styles.runeRow}>
+            {runeList.map((runeId) => (
+              <Rune
+                id={runeId}
+                active={selectedPerkIds.includes(runeId)}
+                size="mini"
+                key={runeId}
               />
             ))}
           </div>

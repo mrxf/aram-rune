@@ -3,12 +3,18 @@
   display: flex;
   justify-content: space-between;
 }
-.primaryRune {
-  width: 200px;
+.rune {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 16px 0;
+}
+.primaryRune {
+  .rune;
+  width: 200px;
+}
+.fragmentRune {
+  .rune;
+  width: 100px;
 }
 .runeRow {
   display: flex;

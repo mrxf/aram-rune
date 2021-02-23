@@ -1,3 +1,10 @@
+export const mainRuneIconMap = {
+  8000: 'precision',
+  8100: 'domination',
+  8200: 'sorcery',
+  
+}
+
 export const Precision = {
   8000: [
     8005,
