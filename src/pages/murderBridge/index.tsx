@@ -81,6 +81,14 @@ const MurderBridge: React.FC<MurderBridgeProps> = () => {
     [heroResponse]
   );
 
+  const handleEnter = useCallback(() => {
+    if ( filterHero && filterHero.length > 0 ) {
+      setViewHero(filterHero[0]);
+    } else {
+      notification.error({ message: "没有搜索到英雄呀！" });
+    }
+  }, [filterHero])
+
   return (
     <>
       <Card className={styles.filterContainer}>
@@ -92,7 +100,7 @@ const MurderBridge: React.FC<MurderBridgeProps> = () => {
           className={styles.search}
           onChange={onFilter}
           value={searchWord}
-          onPressEnter={() => notification.success({ message: "第一个呀" })}
+          onPressEnter={handleEnter}
         />
         <Radio.Group value={hearoType} onChange={handlerChangeType}>
           <Radio.Button value="all">全部</Radio.Button>
