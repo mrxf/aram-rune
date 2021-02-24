@@ -19,7 +19,6 @@ const RuneActive: React.FC<RuneActiveProps> = ({
       <div className={styles.primaryRune}>
         {MainRuneMap[primaryStyleId].map((runeList) => (
           <div className={styles.runeRow}>
-            <Rune id={primaryStyleId} active />
             {runeList.map((runeId) => (
               <Rune
                 id={runeId}
@@ -43,20 +42,20 @@ const RuneActive: React.FC<RuneActiveProps> = ({
             ))}
           </div>
         ))}
-      </div>
-      <div className={styles.fragmentRune}>
-        {FragmentMap.map((runeList) => (
-          <div className={styles.runeRow}>
-            {runeList.map((runeId) => (
-              <Rune
-                id={runeId}
-                active={selectedPerkIds.includes(runeId)}
-                size="mini"
-                key={runeId}
-              />
-            ))}
-          </div>
-        ))}
+        <div className={styles.fragmentRune}>
+          {FragmentMap.map((runeList) => (
+            <div className={styles.runeRow}>
+              {runeList.map((runeId) => (
+                <Rune
+                  id={runeId}
+                  active={selectedPerkIds.includes(runeId)}
+                  size="mini"
+                  key={runeId}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,4 @@
-import {
-  CloudServerOutlined,
-  InsertRowAboveOutlined,
-  TableOutlined,
-} from "@ant-design/icons";
-import React, { lazy } from "react";
-import { Redirect } from "react-router-dom";
+import { lazy } from "react";
 import { IRouteItem } from "src/constants/interfaces/IRouterItem";
 import NotFound from "./exceptions/notFound";
 

@@ -29,23 +29,26 @@ const RuneViewer: React.FC<RuneViewerProps> = ({ alias = "Aatrox" }) => {
             expandIcon={({ isActive }) => (
               <CaretRightOutlined rotate={isActive ? 90 : 0} />
             )}
+            defaultActiveKey={["rune-0"]}
             accordion
           >
-            {runeResponse.data[0].runes.map((runeData, index) => (
-              <Panel
-                header={<QuickRuneView {...runeData} />}
-                key={`${runeData.name}-${runeData.primaryStyleId}-${runeData.score}`}
-                extra={
-                  index === 0 ? (
-                    <Tag icon={<LikeOutlined />} color="gold">
-                      推荐
-                    </Tag>
-                  ) : undefined
-                }
-              >
-                <RuneActive {...runeData} />
-              </Panel>
-            ))}
+            {runeResponse.data[0].runes
+              .filter((item, index) => index < 6)
+              .map((runeData, index) => (
+                <Panel
+                  header={<QuickRuneView {...runeData} />}
+                  key={`rune-${index}`}
+                  extra={
+                    index === 0 ? (
+                      <Tag icon={<LikeOutlined />} color="gold">
+                        推荐
+                      </Tag>
+                    ) : undefined
+                  }
+                >
+                  <RuneActive {...runeData} />
+                </Panel>
+              ))}
           </Collapse>
         )}
       </div>
