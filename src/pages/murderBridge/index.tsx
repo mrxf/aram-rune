@@ -1,5 +1,5 @@
 import { useRequest } from "ahooks";
-import { Card, Input, Modal, notification, Radio } from "antd";
+import { Card, Input, Modal, notification, Radio, Row, Col } from "antd";
 import { RadioChangeEvent } from "antd/lib/radio";
 import { AxiosResponse } from "axios";
 import classNames from "classnames";
@@ -82,34 +82,39 @@ const MurderBridge: React.FC<MurderBridgeProps> = () => {
   );
 
   const handleEnter = useCallback(() => {
-    if ( filterHero && filterHero.length > 0 ) {
+    if (filterHero && filterHero.length > 0) {
       setViewHero(filterHero[0]);
     } else {
       notification.error({ message: "没有搜索到英雄呀！" });
     }
-  }, [filterHero])
+  }, [filterHero]);
 
   return (
     <>
-      <Card className={styles.filterContainer}>
-        <Search
-          placeholder="搜索英雄，回车查看第一个"
-          allowClear
-          enterButton
-          size="large"
-          className={styles.search}
-          onChange={onFilter}
-          value={searchWord}
-          onPressEnter={handleEnter}
-        />
-        <Radio.Group value={hearoType} onChange={handlerChangeType}>
-          <Radio.Button value="all">全部</Radio.Button>
-          {Object.keys(heroTypeMap).map((key) => (
-            <Radio.Button value={key} key={key}>
-              {heroTypeMap[key as IHeroType]}
-            </Radio.Button>
-          ))}
-        </Radio.Group>
+      <Card className={styles.md16}>
+        <Row justify="space-between" align="middle">
+          <Col md={8} sm={24} className={styles.mb16}>
+            <Search
+              placeholder="搜索英雄，回车查看第一个"
+              allowClear
+              enterButton
+              size="large"
+              onChange={onFilter}
+              value={searchWord}
+              onPressEnter={handleEnter}
+            />
+          </Col>
+          <Col md={12} sm={24}>
+            <Radio.Group value={hearoType} onChange={handlerChangeType}>
+              <Radio.Button value="all">全部</Radio.Button>
+              {Object.keys(heroTypeMap).map((key) => (
+                <Radio.Button value={key} key={key}>
+                  {heroTypeMap[key as IHeroType]}
+                </Radio.Button>
+              ))}
+            </Radio.Group>
+          </Col>
+        </Row>
       </Card>
       <Card loading={isFetching}>
         {heroResponse?.data.hero?.map((hero) => (
@@ -120,7 +125,7 @@ const MurderBridge: React.FC<MurderBridgeProps> = () => {
                   -1) > -1,
             })}
             onClick={() => setViewHero(hero)}
-            key={ hero.alias }
+            key={hero.alias}
           >
             <img
               src={`${imageResoucePrefix}/${hero.alias}.png`}
@@ -131,15 +136,15 @@ const MurderBridge: React.FC<MurderBridgeProps> = () => {
         ))}
       </Card>
       <Modal
-        title={ `${ viewHero?.title }的天赋出装推荐` }
+        title={`${viewHero?.title}的天赋推荐`}
         footer={null}
         visible={!!viewHero}
         width={750}
         onCancel={() => setViewHero(null)}
-        className={ styles.runeModal }
+        className={styles.runeModal}
         destroyOnClose
       >
-        <RuneViewer alias={ viewHero?.alias } />
+        <RuneViewer alias={viewHero?.alias} />
       </Modal>
     </>
   );
