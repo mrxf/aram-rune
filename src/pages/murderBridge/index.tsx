@@ -136,6 +136,7 @@ const MurderBridge: React.FC<MurderBridgeProps> = () => {
         visible={!!viewHero}
         width={750}
         onCancel={() => setViewHero(null)}
+        className={ styles.runeModal }
         destroyOnClose
       >
         <RuneViewer alias={ viewHero?.alias } />
