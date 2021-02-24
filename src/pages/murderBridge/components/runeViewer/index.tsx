@@ -1,4 +1,4 @@
-import { CaretRightOutlined, LikeOutlined } from "@ant-design/icons";
+import { CaretRightOutlined, FireOutlined } from "@ant-design/icons";
 import { useRequest } from "ahooks";
 import { Collapse, Spin, Tag } from "antd";
 import { AxiosResponse } from "axios";
