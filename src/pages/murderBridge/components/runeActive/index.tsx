@@ -1,5 +1,5 @@
 import { Col, Grid, Row } from "antd";
-import React, { ReactText, useEffect } from "react";
+import React, { ReactText } from "react";
 import {
   FragmentMap,
   mainRuneIconMap,
