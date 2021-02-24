@@ -40,7 +40,7 @@ const RuneViewer: React.FC<RuneViewerProps> = ({ alias = "Aatrox" }) => {
                   key={`rune-${index}`}
                   extra={
                     index === 0 ? (
-                      <Tag icon={<LikeOutlined />} color="gold">
+                      <Tag icon={<FireOutlined />} color="gold">
                         推荐
                       </Tag>
                     ) : undefined
