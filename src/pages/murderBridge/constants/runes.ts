@@ -1,9 +1,10 @@
-export const mainRuneIconMap = {
-  8000: 'precision',
-  8100: 'domination',
-  8200: 'sorcery',
-  
-}
+export const mainRuneIconMap: { [key: number]: string } = {
+  8000: "Precision",
+  8100: "Domination",
+  8200: "Sorcery",
+  8300: "Inspiration",
+  8400: "Resolve",
+};
 
 export const Precision = {
   8000: [
@@ -132,7 +133,11 @@ export const SubRuneMap: { [key: number]: number[][] } = {
     [9104, 9105, 9103],
     [8014, 8017, 8299],
   ],
-  8100: [[8126, 8139, 8143], [8136, 8120, 8138], [8135, 8134, 8105,8106]],
+  8100: [
+    [8126, 8139, 8143],
+    [8136, 8120, 8138],
+    [8135, 8134, 8105, 8106],
+  ],
   8200: [
     [8224, 8226, 8275],
     [8210, 8234, 8233],

@@ -1,5 +1,11 @@
 import React, { ReactText } from "react";
-import { FragmentMap, MainRuneMap, SubRuneMap } from "../../constants/runes";
+import {
+  FragmentMap,
+  mainRuneIconMap,
+  MainRuneMap,
+  SubRuneMap,
+} from "../../constants/runes";
+import BuildRune from "../buildRune";
 import Rune from "../rune";
 import styles from "./index.module.less";
 
@@ -17,6 +23,14 @@ const RuneActive: React.FC<RuneActiveProps> = ({
   return (
     <div className={styles.runeContainer}>
       <div className={styles.primaryRune}>
+        <div className={styles.runeRow}>
+          {Object.keys(mainRuneIconMap).map((id) => (
+            <BuildRune
+              id={parseInt(id)}
+              active={id.toString() === primaryStyleId.toString()}
+            />
+          ))}
+        </div>
         {MainRuneMap[primaryStyleId].map((runeList) => (
           <div className={styles.runeRow}>
             {runeList.map((runeId) => (
@@ -30,6 +44,16 @@ const RuneActive: React.FC<RuneActiveProps> = ({
         ))}
       </div>
       <div className={styles.primaryRune}>
+        <div className={styles.runeRow}>
+          {Object.keys(mainRuneIconMap)
+            .filter((id) => id.toString() !== primaryStyleId.toString())
+            .map((id) => (
+              <BuildRune
+                id={parseInt(id)}
+                active={id.toString() === subStyleId.toString()}
+              />
+            ))}
+        </div>
         {SubRuneMap[subStyleId].map((runeList) => (
           <div className={styles.runeRow}>
             {runeList.map((runeId) => (
